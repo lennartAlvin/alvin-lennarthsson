@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// GitHub Pages project site: set base to '/<repository-name>/'
-// For a user/org site (username.github.io) or local dev, use '/'
-// See README for details.
-export default defineConfig({
+// GitHub Pages project site: production build must use '/<repository-name>/' (case-sensitive).
+// Local dev uses '/' so assets load correctly on localhost.
+// If you rename the repo, update GITHUB_PAGES_BASE below.
+const GITHUB_PAGES_BASE = '/alvin-lennarthsson/';
+
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/alvin-lennarthsson/',
-});
+  base: command === 'build' ? GITHUB_PAGES_BASE : '/',
+}));
