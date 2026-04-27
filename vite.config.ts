@@ -6,5 +6,5 @@ import react from '@vitejs/plugin-react';
 // See README for details.
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/alvin-lennarthsson/',
 });
